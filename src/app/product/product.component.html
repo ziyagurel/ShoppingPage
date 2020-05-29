@@ -17,7 +17,7 @@
         <div class="card-body">
           <h5 class="card-title"> {{item.name}} {{item.price | currency:'TL' : '₺' : '1.2-2'}}</h5>
           <p class="card-text"> {{item.description}} </p>
-          <a href="#" class="btn btn-primary">Sepete Ekle</a>
+          <a (click)="addToCart(item)" class="btn btn-primary">Sepete Ekle</a>
         </div>
     </div>
 </div>

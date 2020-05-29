@@ -16,6 +16,10 @@ export class ProductComponent implements OnInit {
     {id:2, name: "Mause", price:45, categoryId: 2, description: "LOGITECH M171 MOUSE BLACK for ASUS X543MA CELERON N4000", imageUrl: "https://images.unsplash.com/photo-1566476927456-446189d7b1ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}
   ]
   ngOnInit(): void {
+
   }
 
+  addToCart(product){
+    alert("Sepete eklendi... : " + product.name)
+  }
 }
