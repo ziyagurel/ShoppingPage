@@ -1,1 +1,18 @@
-<p>product works!</p>
+<h3 style="text-align: center;" *ngIf="products; else: nothing"> {{title}} </h3>
+
+<div class="row">
+    <ng-template #nothing>
+        <div class="alert alert-primary" role="alert">
+            Bu kategoride uygun ürün bulunamadı...
+        </div>
+    </ng-template>
+    <div *ngFor="let item of products" class="card" style="width: 18rem; padding: 10px; margin: 5px;">
+        <img class="card-img-top" [src] ="item.imageUrl" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"> {{item.name}} </h5>
+          <p class="card-text"> {{item.description}} </p>
+          <a href="#" class="btn btn-primary">Sepete Ekle</a>
+        </div>
+    </div>
+</div>
+  
