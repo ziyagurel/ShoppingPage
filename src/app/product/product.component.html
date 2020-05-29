@@ -2,9 +2,8 @@
 
 <div class="form-group">
     <input type="email" class="form-control" id="searchToProduct" placeholder="Arancak ürün..." 
-    [(ngModel)] = "filterText"
-    aria-describedby="emailHelp">
-    <small id="emailHelp" class="form-text text-muted"></small>
+    [(ngModel)] = "filterText">
+    <small *ngIf="filterText" class="form-text text-muted"><strong> '{{filterText}}' ürünü için arama sonucu : </strong></small>
   </div>
 
 <div class="row">
