@@ -9,7 +9,7 @@
     <div *ngFor="let item of products" class="card" style="width: 18rem; padding: 10px; margin: 5px;">
         <img class="card-img-top" [src] ="item.imageUrl" alt="...">
         <div class="card-body">
-          <h5 class="card-title"> {{item.name}} </h5>
+          <h5 class="card-title"> {{item.name}} {{item.price | currency:'TL' : '₺' : '1.2-2'}}</h5>
           <p class="card-text"> {{item.description}} </p>
           <a href="#" class="btn btn-primary">Sepete Ekle</a>
         </div>
