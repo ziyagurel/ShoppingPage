@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
+import {AlertifyService} from '../services/alertify.service'
 
 @Component({
   selector: 'app-product',
@@ -8,7 +9,8 @@ import { Product } from './product';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  //servis kullanılırken constructor içerisinde instance olusuturulur. alertifyService isiminde AlertifyService nesnesi..
+  constructor(private alertifyService:AlertifyService) { }
   title = "Ürünler"
   filterText = ""
   products : Product[] =[
@@ -20,6 +22,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product){
-    alert("Sepete eklendi... : " + product.name)
+    this.alertifyService.success(product.name + " isimli ürün sepete eklendi...")
+    //alert(product.name + " isimli ürün sepete eklendi...")
   }
 }
