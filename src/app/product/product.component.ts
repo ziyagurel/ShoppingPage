@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
-import {AlertifyService} from '../services/alertify.service'
+import {AlertifyService} from '../services/alertify.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-product',
@@ -10,15 +11,18 @@ import {AlertifyService} from '../services/alertify.service'
 export class ProductComponent implements OnInit {
 
   //servis kullanılırken constructor içerisinde instance olusuturulur. alertifyService isiminde AlertifyService nesnesi..
-  constructor(private alertifyService:AlertifyService) { }
+  constructor(private alertifyService:AlertifyService, private http:HttpClient) { }
   title = "Ürünler"
   filterText = ""
-  products : Product[] =[
-    {id:1, name: "Laptop", price:4500, categoryId: 1, description: "ASUS X543MA CELERON N4000 1.1GHZ-4GB RAM-500GB HDD-15.6-W10 NOTEBOOK", imageUrl: "https://images.unsplash.com/photo-1566476927456-446189d7b1ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"},
-    {id:2, name: "Mause", price:45, categoryId: 2, description: "LOGITECH M171 MOUSE BLACK for ASUS X543MA CELERON N4000", imageUrl: "https://images.unsplash.com/photo-1566476927456-446189d7b1ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}
-  ]
+  products : Product[];
+  path = "http://localhost:3000/products";
+  //Program ilk çalıştığında burası başlar.
   ngOnInit(): void {
-
+    this.http
+    .get<Product[]>(this.path)
+    .subscribe(data=>{
+      this.products = data;
+    });
   }
 
   addToCart(product){
