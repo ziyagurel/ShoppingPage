@@ -18,6 +18,7 @@ export class ProductService {
       catchError(this.handleError)
     )
   }
+  
   handleError(err: HttpErrorResponse){
     let errorMessage = ''
     if(err.error instanceof ErrorEvent){
