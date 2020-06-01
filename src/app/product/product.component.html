@@ -1,4 +1,4 @@
-<h3 style="text-align: center;" *ngIf="products; else: nothing"> {{title}} </h3>
+<!-- <h3 style="text-align: center;" *ngIf="products; else: nothing"> {{title}} </h3> -->
 
 <div class="form-group">
     <input type="email" class="form-control" id="searchToProduct" placeholder="Arancak ürün..." 
@@ -12,7 +12,7 @@
             Bu kategoride uygun ürün bulunamadı...
         </div>
     </ng-template>
-    <div *ngFor="let item of products | productFilter : filterText" class="card" style="width: 18rem; padding: 10px; margin: 5px;">
+    <div *ngFor="let item of products | productFilter : filterText" class="productbox">
         <img class="card-img-top" [src] ="item.imageUrl" alt="...">
         <div class="card-body">
           <h5 class="card-title"> {{item.name}} {{item.price | currency:'TL' : '₺' : '1.2-2'}}</h5>
