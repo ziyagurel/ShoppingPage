@@ -11,14 +11,15 @@ export class ProductService {
   constructor(private http:HttpClient) { }
   path = "http://localhost:3000/products";
 
-  getProductList():Observable<Product[]>{
+  getProductList(categoryId):Observable<Product[]>{
+    alert(categoryId)
     return this.http
     .get<Product[]>(this.path).pipe(
       tap(data=>console.log(JSON.stringify(data))),
       catchError(this.handleError)
     )
   }
-  
+
   handleError(err: HttpErrorResponse){
     let errorMessage = ''
     if(err.error instanceof ErrorEvent){
