@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, FormArray} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 
+import { AppRoutingModule } from "./app-routing.module"
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFilterPipe } from './product/product-filter.pipe';
 import { AlertifyService } from './services/alertify.service';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { AlertifyService } from './services/alertify.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   //providers içerisine eklenenle global servis olduğunu gösterir.
   providers: [AlertifyService],
