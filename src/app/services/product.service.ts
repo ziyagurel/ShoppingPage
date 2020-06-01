@@ -12,9 +12,8 @@ export class ProductService {
   path = "http://localhost:3000/products";
 
   getProductList(categoryId):Observable<Product[]>{
-    alert(categoryId)
     return this.http
-    .get<Product[]>(this.path).pipe(
+    .get<Product[]>(this.path + "?categoryId=" + categoryId).pipe(
       tap(data=>console.log(JSON.stringify(data))),
       catchError(this.handleError)
     )
