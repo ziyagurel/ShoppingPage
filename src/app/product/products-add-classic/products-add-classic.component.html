@@ -1,0 +1,31 @@
+<form #productAddForm="ngForm" (ngSubmit)="add(productAddForm)">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h3 style="text-align: center;">Yeni Ürün Ekle</h3><br>
+            <div class="form-group">
+                <input class="form-control" id="name" name="name" type="text" placeholder="Ürün adi..." #name="ngModel" [(ngModel)]="model.name" required>
+                <div class="alert alert-danger" *ngIf="name.invalid && name.dirty">Ürün isimi boş geçilemez</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="description" name="description" type="text" placeholder="Ürünün Açıklaması..." #description="ngModel" [(ngModel)]="model.description" required>
+                <div class="alert alert-danger" *ngIf="description.invalid && description.dirty">Ürün açıklaması boş geçilemez</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="imageUrl" name="imageUrl" type="text" placeholder="Resimin yolu..." #imageUrl="ngModel" [(ngModel)]="model.imageUrl" required>
+                <div class="alert alert-danger" *ngIf="imageUrl.invalid && imageUrl.dirty">Resim yolu boş geçilemez</div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="price" name="price" type="text" placeholder="Fiyati..." #price="ngModel" [(ngModel)]="model.price" required>
+                <div class="alert alert-danger" *ngIf="price.invalid && price.dirty">Fiyat boş geçilemez</div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="categoryId" name="categoryId" #categoryId="ngModel" [(ngModel)]="model.categoryId">
+                    <option *ngFor="let item of categories"  [value]="item.id" required> {{item.name}} </option>
+                    <div class="alert alert-danger" *ngIf="price.invalid && price.dirty">Fiyat boş geçilemez</div>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="productAddForm.invalid">Kaydet</button>
+        </div>
+    </div>
+</form>
