@@ -3,16 +3,21 @@ import { Product } from '../product';
 import { CategoryService } from 'src/app/services/category.service';
 import { Category } from 'src/app/category/category';
 import { NgForm } from '@angular/forms';
+import { ProductService } from 'src/app/services/product.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-products-add-classic',
   templateUrl: './products-add-classic.component.html',
   styleUrls: ['./products-add-classic.component.css'],
-  providers: [CategoryService]
+  providers: [CategoryService,ProductService]
 })
 export class ProductsAddClassicComponent implements OnInit {
 
-  constructor(private categoryService : CategoryService) { }
+  constructor(
+    private categoryService : CategoryService,
+    private productService : ProductService,
+    private alert : AlertifyService) { }
   model : Product = new Product();
   categories : Category[];
 
@@ -23,7 +28,9 @@ export class ProductsAddClassicComponent implements OnInit {
   }
 
   add(form:NgForm){
-    console.log(form.value.name);
+    this.productService.addproduct(this.model).subscribe(data=>{
+      this.alert.success("Ürün Başarıyla Eklendi...")
+    })
   }
 
 }
