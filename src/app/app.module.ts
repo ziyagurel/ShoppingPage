@@ -14,6 +14,7 @@ import { from } from 'rxjs';
 import { ProductsAddClassicComponent } from './product/products-add-classic/products-add-classic.component';
 import { ProductsAddReactiveComponent } from './product/products-add-reactive/products-add-reactive.component';
 import { LoginComponent } from './login/login.component';
+import { AccountService } from './services/account.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule
   ],
   //providers içerisine eklenenle global servis olduğunu gösterir.
-  providers: [AlertifyService],
+  providers: [AlertifyService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
