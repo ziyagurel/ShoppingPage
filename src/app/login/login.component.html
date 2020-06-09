@@ -1,15 +1,15 @@
-<form class="form-signin">
+<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="text-center mb-4">
       <h1 class="h3 mb-3 font-weight-normal">Giriş</h1>
     </div>
   
     <div class="form-label-group">
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="text" id="userName" name="userName" class="form-control" placeholder="Email address" #userName="ngModel" [(ngModel)]="model.userName" required autofocus>
       <label for="inputEmail">Email address</label>
     </div>
   
     <div class="form-label-group">
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Password" #password="ngModel" [(ngModel)]="model.password" required>
       <label for="inputPassword">Password</label>
     </div>
   
