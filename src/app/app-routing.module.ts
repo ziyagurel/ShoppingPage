@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { ProductsAddClassicComponent } from './product/products-add-classic/products-add-classic.component';
 import { ProductsAddReactiveComponent } from './product/products-add-reactive/products-add-reactive.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path : 'products/category/:categoryId', component:ProductComponent},
   {path : 'products-add-reactive', component : ProductsAddReactiveComponent},
   {path : 'products-add-classic', component : ProductsAddClassicComponent},
+  {path : 'login', component : LoginComponent}
 ];
 
 @NgModule({

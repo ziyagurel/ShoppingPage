@@ -13,6 +13,7 @@ import { AlertifyService } from './services/alertify.service';
 import { from } from 'rxjs';
 import { ProductsAddClassicComponent } from './product/products-add-classic/products-add-classic.component';
 import { ProductsAddReactiveComponent } from './product/products-add-reactive/products-add-reactive.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductsAddReactiveComponent } from './product/products-add-reactive/pr
     ProductComponent,
     ProductFilterPipe,
     ProductsAddClassicComponent,
-    ProductsAddReactiveComponent
+    ProductsAddReactiveComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
